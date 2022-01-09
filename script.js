@@ -26,11 +26,15 @@ input.addEventListener("keyup", (e) => {
   }
 });
 
+
+
 let pokemon = {};
 // FETCH MAIN POKEMON API USING SEARCH TERM FROM SEARCH INPUT BAR//
 async function getPokemon(searchTerm) {
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/${searchTerm}/`;
+  
   const response = await fetch(apiUrl);
+  handleErrors(response);
   const data = await response.json();
 
   tooltip.style.visibility = "hidden";
@@ -57,6 +61,18 @@ async function getPokemon(searchTerm) {
   };
 
   injectIntoHtml(pokemon);
+}
+let isTooltip = false;
+function handleErrors(response) {
+  if (!response.ok) {
+      tooltip.style.visibility="visible";
+      isTooltip = true;
+  }
+  else{
+    tooltip.style.visibility="hidden";
+    isTooltip = false;
+  }
+  return response;
 }
 
 // FETCH POKEMON MOVES //
