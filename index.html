@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    
+    <title>Pokemon Deck</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="tooltip">
+        <p>This Pokemon does not exist yet.</p>
+        <i></i>
+      </div>
+
+      <input
+        type="text"
+        class="input"
+        id="search"
+        placeholder="Search a Pokemon..."
+      />
+      <div class="card">
+        <div class="card-content">
+          <div class="title">
+            <p class="pokemon-name"></p>
+            <div class="hp-icon">
+            <p class="hp"></p>
+            <div class="icon-container">
+            <img class="typeIcon" src="" alt="">
+            </div>
+          </div>
+          </div>
+          <div class="img-container">
+            <img src="" alt="" class="pokemon-img" />
+          </div>
+          <div class="physical-data">
+            <p class="type"></p>
+            <p class="height"></p>
+            <p class="weight"></p>
+          </div>
+          <div class="move">
+            <p class="move-title" id="firstMoveTitle">
+              <!-- <span class="move-info" id="firstMoveEffect"></span>  -->
+            </p>
+          </div>
+          <div class="move">
+            <p class="move-title" id="secondMoveTitle">
+              <!-- <span class="move-info" id="secondMoveEffect"></span> -->
+            </p>
+          </div>
+          <p class="pokemon-info">
+            A Pokemon that has beeen long admired for its beauty.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

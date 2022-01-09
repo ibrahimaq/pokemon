@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Hind", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+input {
+  margin-bottom: 2rem;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid lightslategray;
+  width: 300px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: solid;
+  width: 300px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.pokemon-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.hp-icon {
+  display: flex;
+  flex-direction: row;
+}
+
+.hp {
+  color: red;
+  font-weight: 550;
+}
+.icon-container {
+  display: flex;
+}
+
+.typeIcon {
+  width: auto;
+  height: 1.75rem;
+  position: relative;
+  top: -10px;
+  margin-left: 5px;
+}
+
+/* .typeIcon{
+  width: 25%;
+  height: auto;
+} */
+
+.img-container {
+  display: flex;
+  margin: 1rem 0;
+}
+
+img {
+  margin: 0 auto;
+  max-width: 150px;
+  height: auto;
+}
+
+.physical-data {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: solid;
+  justify-content: center;
+}
+
+.type,
+.height,
+.weight {
+  padding: 0 2px;
+}
+
+.type {
+  text-transform: capitalize;
+}
+
+.move {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1rem;
+}
+
+.move-title {
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+span {
+  font-weight: normal;
+  font-size: 0.8rem;
+  text-transform: none;
+}
+
+/* TOOLTIP */
+
+.tooltip {
+  min-width: 200px;
+  position: relative;
+  bottom: 20px;
+  left: -25px;
+  padding: 10px 20px;
+  color: #cc0000;
+  background-color: #eeeeee;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  z-index: 99999999;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+}
+
+.tooltip i {
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  /* margin-left:-12px; */
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.tooltip i::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #eeeeee;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
