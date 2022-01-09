@@ -1,4 +1,18 @@
 console.clear();
+const card = document.body.querySelector(".card");
+let isHidden = false;
+window.onload = displayCard();
+function displayCard() {
+  if (!isHidden) {
+    card.style.visibility = "hidden";
+    isHidden = true;
+    console.log("hidden");
+  } else {
+    card.style.visibility = "visible";
+    console.log("visibile");
+  }
+}
+
 const input = document.body.querySelector("input");
 const tooltip = document.body.querySelector(".tooltip");
 
@@ -8,10 +22,11 @@ input.addEventListener("keyup", (e) => {
 
   if (searchTerm.length > 0 && e.code === "Enter") {
     getPokemon(searchTerm.toLowerCase());
+    displayCard();
   }
 });
 
-var pokemon = {};
+let pokemon = {};
 // FETCH MAIN POKEMON API USING SEARCH TERM FROM SEARCH INPUT BAR//
 async function getPokemon(searchTerm) {
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/${searchTerm}/`;
@@ -20,7 +35,7 @@ async function getPokemon(searchTerm) {
 
   tooltip.style.visibility = "hidden";
 
-    console.log(data);
+  console.log(data);
 
   pokemon = {
     name: data.name,
@@ -37,39 +52,29 @@ async function getPokemon(searchTerm) {
     },
     type: data.types[0].type.name,
     height: data.height,
-    weight: data.weight
+    weight: data.weight,
+    color: colorObj[data.types[0].type.name], //POKEMON COLOR IS BASED ON THE POKEMON TYPE.
   };
 
-  //   console.log(pokemon.ability.secondMoveName);
-  // console.log(pokemon);
-  // console.log(pokemon.moves.firstMoveEffect);
-  // getfirstMoveUrl(pokemon.moves.firstMoveUrl, pokemon.moves.secondMoveUrl);
-  // console.log(pokemon.moves.firstMoveEffect);
-  // console.log(pokemon)
   injectIntoHtml(pokemon);
 }
 
-
 // FETCH POKEMON MOVES //
 
-async function getFirstMoveEffect(firstMoveUrl){
-  
+async function getFirstMoveEffect(firstMoveUrl) {
   const response = await fetch(firstMoveUrl);
   const data = await response.json();
   const firstMoveText = data.effect_entries[0].short_effect;
   console.log(firstMoveText);
   return firstMoveText;
-  
 }
 
-async function getSecondMoveEffect(secondMoveUrl){
-  
+async function getSecondMoveEffect(secondMoveUrl) {
   const response = await fetch(secondMoveUrl);
   const data = await response.json();
   const secondMoveText = data.effect_entries[0].short_effect;
   console.log(secondMoveText);
   return secondMoveText;
-  
 }
 
 // FETCH POKEMON TYPE ICON //
@@ -81,12 +86,7 @@ async function getSecondMoveEffect(secondMoveUrl){
 
 // }
 
-
-
-
-
 // QUERY SELECTORS //
-
 const img = document.body.querySelector(".pokemon-img");
 const pokemonName = document.body.querySelector(".pokemon-name");
 const hp = document.body.querySelector(".hp");
@@ -97,24 +97,23 @@ const type = document.body.querySelector(".type");
 const height = document.body.querySelector(".height");
 const weight = document.body.querySelector(".weight");
 
-
 //INJECTING INTO HTML //
 function injectIntoHtml(pokemon) {
   console.log(pokemon);
-  pokemonName.innerHTML = pokemon.name;
+  (card.style.backgroundColor = pokemon.color),
+    (pokemonName.innerHTML = pokemon.name);
   hp.innerHTML = pokemon.hp + " HP";
   img.setAttribute("src", pokemon.image);
   type.innerHTML = pokemon.type + " pokemon.";
   height.innerHTML = "Height: " + pokemon.height + ", ";
-  weight.innerHTML = "Weight: " + pokemon.weight +".";
+  weight.innerHTML = "Weight: " + pokemon.weight + ".";
   firstMoveTitle.innerHTML = pokemon.moves.firstMoveName;
   secondMoveTitle.innerHTML = pokemon.moves.secondMoveName;
-  
+
   typeIcon.setAttribute("src", `/typeIcons/${pokemon.type}.png`);
 
-
   //creating and appending span elements to move titles just to get the desired style
-  //of presenting the information. Could have been done easier is two <p> tags were 
+  //of presenting the information. Could have been done easier is two <p> tags were
   //already created and are siblings to each other. 1 <p> for title and other for effect info
   const firstMoveInfo = document.createElement("span");
   firstMoveInfo.innerHTML = " " + pokemon.moves.firstMoveEffect;
@@ -123,8 +122,25 @@ function injectIntoHtml(pokemon) {
   const secondMoveInfo = document.createElement("span");
   secondMoveInfo.innerHTML = " " + pokemon.moves.firstMoveEffect;
   secondMoveTitle.appendChild(secondMoveInfo);
-  
-  // secondMoveInfo.innerHTML = pokemon.moves.secondMoveEffect;
-  
-  
 }
+
+const colorObj = {
+  bug: "#84C400",
+  dark: "#5B5366",
+  dragon: "#006FCA",
+  electric: "#FBD200",
+  fairy: "#FB8AEC",
+  fighting: "#E12C6A",
+  fire: "#FF983F",
+  flying: "#8AACE4",
+  ghost: "#4B6AB3",
+  grass: "#35C04A",
+  ground: "#E97333",
+  ice: "#4BD2C1",
+  normal: "#929BA3",
+  poison: "#B667CF",
+  psychic: "#FF6676",
+  rock: "#C9B787",
+  steel: "#5A8FA3",
+  water: "#3393DD",
+};
