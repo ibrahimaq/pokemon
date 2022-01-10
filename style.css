@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-:root{
+:root {
   --gold: #daa520;
 }
 
@@ -90,10 +90,11 @@ input {
 
 .pokemon-img {
   margin: 0 auto;
-  max-width: 150px;
+  max-width: 225px;
   height: auto;
+
   background-color: white;
-  border: solid 8px var(--gold);
+  border: solid 4px var(--gold);
 }
 
 .physical-data {
@@ -101,7 +102,7 @@ input {
   flex-direction: row;
   font-size: 0.7rem;
   font-weight: 600;
-  
+
   justify-content: center;
   background-color: var(--gold);
   width: 90%;
@@ -145,7 +146,7 @@ span {
   text-transform: none;
 }
 
-.pokemon-info{
+.pokemon-info {
   font-size: 0.75rem;
   font-weight: 550;
   font-style: italic;
