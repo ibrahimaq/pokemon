@@ -12,6 +12,15 @@
 body {
   font-family: "Hind", sans-serif;
 }
+.deckTitle {
+  display: flex;
+  align-items: center;
+}
+.deckTitle > img {
+  width: auto;
+  height: 2.5rem;
+  margin-left: 1rem;
+}
 
 .container {
   display: flex;
