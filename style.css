@@ -17,7 +17,7 @@ body {
   display: flex;
   align-items: center;
 }
-.deckTitle > img {
+.pokeball {
   width: auto;
   height: 2.5rem;
   margin-left: 1rem;
