@@ -116,7 +116,7 @@ function injectIntoHtml(pokemon) {
   firstMoveTitle.appendChild(firstMoveInfo);
 
   const secondMoveInfo = document.createElement("span");
-  secondMoveInfo.innerHTML = " " + pokemon.moves.firstMoveEffect;
+  secondMoveInfo.innerHTML = " " + pokemon.moves.secondMoveEffect;
   secondMoveTitle.appendChild(secondMoveInfo);
 }
 
