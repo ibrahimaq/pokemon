@@ -1,4 +1,3 @@
-console.clear();
 const card = document.body.querySelector(".card");
 let isHidden = false;
 window.onload = displayCard();
@@ -6,10 +5,8 @@ function displayCard() {
   if (!isHidden) {
     card.style.visibility = "hidden";
     isHidden = true;
-    console.log("hidden");
   } else {
     card.style.visibility = "visible";
-    console.log("visibile");
   }
 }
 
@@ -22,7 +19,6 @@ input.addEventListener("keydown", (e) => {
 
   if ((searchTerm.length > 0 && e.code === "Enter") || e.key === "Enter") {
     getPokemon(searchTerm.toLowerCase());
-    
   }
 });
 
@@ -35,14 +31,9 @@ async function getPokemon(searchTerm) {
   handleErrors(response);
   const data = await response.json();
 
-  
-
-  console.log(data);
-
   pokemon = {
     name: data.name,
     hp: data.stats[0].base_stat,
-    // typeIcon: await getTypeIcon(data.types[0].type.name),
     image: data.sprites.other["official-artwork"].front_default,
     moves: {
       firstMoveName: data.moves[10].move.name, //Almost all pokemons have the same moves from 0-10. 10+ is varied a little.
@@ -91,15 +82,6 @@ async function getSecondMoveEffect(secondMoveUrl) {
   return secondMoveText;
 }
 
-// FETCH POKEMON TYPE ICON //
-// async function getTypeIcon(type){
-//   console.log(type);
-//   const response = await fetch(`/typeIcons/${type}.png`);
-//   const blob = await response.blob();
-//   return blob;
-
-// }
-
 // QUERY SELECTORS //
 const img = document.body.querySelector(".pokemon-img");
 const pokemonName = document.body.querySelector(".pokemon-name");
@@ -124,7 +106,7 @@ function injectIntoHtml(pokemon) {
   firstMoveTitle.innerHTML = pokemon.moves.firstMoveName;
   secondMoveTitle.innerHTML = pokemon.moves.secondMoveName;
 
-  typeIcon.setAttribute("src", `/typeIcons/${pokemon.type}.png`);
+  typeIcon.setAttribute("src", `typeIcons/${pokemon.type}.png`);
 
   //creating and appending span elements to move titles just to get the desired style
   //of presenting the information. Could have been done easier is two <p> tags were
