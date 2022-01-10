@@ -22,7 +22,7 @@ input.addEventListener("keydown", (e) => {
 
   if ((searchTerm.length > 0 && e.code === "Enter") || e.key === "Enter") {
     getPokemon(searchTerm.toLowerCase());
-    displayCard();
+    
   }
 });
 
@@ -35,7 +35,7 @@ async function getPokemon(searchTerm) {
   handleErrors(response);
   const data = await response.json();
 
-  tooltip.style.visibility = "hidden";
+  
 
   console.log(data);
 
@@ -67,6 +67,7 @@ function handleErrors(response) {
     isTooltip = true;
   } else {
     tooltip.style.visibility = "hidden";
+    displayCard();
     isTooltip = false;
   }
   return response;
