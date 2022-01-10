@@ -17,22 +17,20 @@ const input = document.body.querySelector("input");
 const tooltip = document.body.querySelector(".tooltip");
 
 // input search bar //
-input.addEventListener("keyup", (e) => {
+input.addEventListener("keydown", (e) => {
   let searchTerm = input.value;
 
-  if (searchTerm.length > 0 && e.code === "Enter") {
+  if ((searchTerm.length > 0 && e.code === "Enter") || e.key === "Enter") {
     getPokemon(searchTerm.toLowerCase());
     displayCard();
   }
 });
 
-
-
 let pokemon = {};
 // FETCH MAIN POKEMON API USING SEARCH TERM FROM SEARCH INPUT BAR//
 async function getPokemon(searchTerm) {
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/${searchTerm}/`;
-  
+
   const response = await fetch(apiUrl);
   handleErrors(response);
   const data = await response.json();
@@ -65,11 +63,10 @@ async function getPokemon(searchTerm) {
 let isTooltip = false;
 function handleErrors(response) {
   if (!response.ok) {
-      tooltip.style.visibility="visible";
-      isTooltip = true;
-  }
-  else{
-    tooltip.style.visibility="hidden";
+    tooltip.style.visibility = "visible";
+    isTooltip = true;
+  } else {
+    tooltip.style.visibility = "hidden";
     isTooltip = false;
   }
   return response;
