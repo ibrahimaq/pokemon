@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+# About
+This is a Pokedex that searches Pokemons from the Pokemon API and presents the Pokemon details in a card-style format.
 
-You can use the [editor on GitHub](https://github.com/ibrahimaq/pokemon/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+## Technologies used
+- HTML & CSS
+- Plain JavaScript
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Theme choice
+I used minimal styling to a mimic a Pokemon card layout. Most important feature is that the card colour changes depending on the 'type' of Pokemon fetched.
 
-### Markdown
+## Learning curve
+This is the first project where I had to fetch data from an external API. I learnt how to fetch from an API and only extract the required data from it to be stored in objects.
+Another learning point was when I had to change the card colour depending on the pokemon 'type' e.g. the colour green for grass Pokemons.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ibrahimaq/pokemon/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Things to improve
+- add a 'comparison' feature where users can compare any given two Pokemons.
+- improve styling
